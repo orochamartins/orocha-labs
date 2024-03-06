@@ -8,12 +8,32 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var showRed = true
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            VStack {
+                VStack {
+                    
+                }
+                .frame(width: 200, height: 50)
+                .background(.black)
+                if showRed {
+                        VStack {
+                            
+                        }
+                        .frame(width: 200, height: 50)
+                        .background(.red)
+                }
+            }
+            .frame(maxWidth: .infinity)
+            .padding()
+            .border(.blue)
+            .animation(.spring(), value: showRed)
+            .onTapGesture {
+                showRed.toggle()
+            }
         }
         .padding()
     }
